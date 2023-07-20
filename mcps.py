@@ -478,7 +478,7 @@ def animate(n):
     global Plas
     Pos, Vel, Plas = move(Pos, Vel, Acc, t, dt, Plas)
     graph._offsets3d = (Pos[0, :], Pos[1, :], Pos[2, :])
-    create_ovito(Plas)
+
 
 
 resolution = 100  # Number of points to sample
@@ -498,7 +498,6 @@ get_initial_coordinates(geometry, R, r)
 check_overlap(Pos, geometry, R, r)
 Plas = create_plasma()
 vx, vy, vz = get_initial_velocities()
-print(color)
 fig = plt.figure()
 ax = fig.add_subplot(projection="3d")
 # Plot the torus surface
@@ -511,5 +510,6 @@ graph = ax.scatter3D(Pos[0, :], Pos[1, :], Pos[2, :], c=color[:], s=32 * radius)
 # show_vect_field()
 ani = animation.FuncAnimation(fig, animate, interval=50, cache_frame_data=False)
 
+# create_ovito(Plas)
 
 plt.show()
